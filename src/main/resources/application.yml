@@ -1,5 +1,6 @@
 server:
-  port: 7777
+  port: 9988
+
 logging:
   level:
     root: info
@@ -13,20 +14,27 @@ logging:
     org.springframework.web.reactive: ERROR
 
 spring:
-  h2:
-    console:
-      enabled: true
+  webflux:
+    base-path: api
+  sql:
+    init:
+      mode: ALWAYS
+      data-locations: classpath:populate.sql
   jpa:
     show-sql: true
-    database: h2
-    database-platform: org.hibernate.dialect.H2Dialect
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+    defer-datasource-initialization: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: 'create-drop'
   datasource:
-    username: sa
-    password: password
-    driver-class-name: org.h2.Driver
-    url: jdbc:h2:mem:testdb
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/tradestore
+
+
+
 
 
 
