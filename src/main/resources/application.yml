@@ -1,0 +1,33 @@
+server:
+  port: 7777
+logging:
+  level:
+    root: info
+    org.springframework.web: info
+    org.springframework.security: INFO
+    org.springframework.cloud: INFO
+    org.springframework.boot: INFO
+    reactor.ipc: ERROR
+    reactor: ERROR
+    com.spring.webflux: ERROR
+    org.springframework.web.reactive: ERROR
+
+spring:
+  h2:
+    console:
+      enabled: true
+  jpa:
+    show-sql: true
+    database: h2
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create
+  datasource:
+    username: sa
+    password: password
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb
+
+
+
+
